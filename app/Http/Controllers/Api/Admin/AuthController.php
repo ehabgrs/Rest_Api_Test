@@ -64,7 +64,7 @@ class AuthController extends Controller
 		
 		if($token == JWTAuth::getToken()){
 			JWTAuth::setToken($token)->invalidate();
-			return response()->json(['msg' => 'You logged out']);
+			return $this->returnSuccess('msg' => 'You logged out');
 		} else {
 			$this->returnError('E0005','something went wrong');
 		}
